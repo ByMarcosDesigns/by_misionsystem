@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="reset.css" type="text/css">
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="container">
+            <div class="neon-wrapper">
+                <h1 class="bysist">ByMarcos System</h1>
+            </div>
+            <br>
+            <button id="createmission" style="margin-left: 15%; margin-top: 12%;">Crear Mision</button>
+            <button id="savemission" style="margin-left: 55%; margin-top: 12%;">Guardar Mision</button>
+            <br>
+            <button id="close" style="margin-top: 35%; margin-left: 75%;">Cerrar</button>
+		</div>
+        <div id="crearmisionesmapa">
+            <h1>Crea una mision</h1>
+            <br>
+            <p>Dale al boton y abre el mapa para marcar el destino de la mision</p>
+            <br>
+            <button id="create" style="margin-left: 35%; margin-top: 15%;">Crear Mision</button>
+            <button id="return1" style="margin-top: 35%; margin-left: 75%;">Volver</button>
+        </div>
+        <div id="guardarmisionessql">
+            <form id="form">
+                <h1 style="margin-left: 20%;">Guardar mision</h1>
+                <br>
+                <p style="margin-left: 16%; margin-top: 7%;">Introduce un nombre para la mision y dale al boton de guardar para guardarla</p>
+                <br>
+                <input placeholder="Nombre de la mision" id="input" style="margin-top: 10%;"></input>
+                <br>
+                <input placeholder="Tipo de mision" id="input2" style="margin-top: 2%;"></input>
+                <br>
+                <button id="submit" type="submit" style="margin-top: 25%; margin-left: 32%;">Guardar mision</button>
+                <button id="return2" style="margin-top: 35%; margin-left: 75%;">Inicio</button>
+            </form>
+        </div>
+        <script src="./listener.js" type="text/javascript"></script>
+    </body>
+</html> 
