@@ -8,7 +8,6 @@ local coords = {}
 local GoToCollect = false 
 local IsLooted = false 
 local TrailerSpawned = false
-local KeyTested = false 
 
 local Status = {
     state = STATE_NONE,
