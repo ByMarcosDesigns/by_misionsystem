@@ -24,24 +24,8 @@ Citizen.CreateThread(function()
 	    TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 	    Citizen.Wait(0)
     end
+byLoadNpcs()
 end)
-
-Citizen.CreateThread(function()
-    while true do 
-        Citizen.Wait(0)
-        TestKey()
-    end 
-end)
-
-function TestKey()
-    if KeyTested == false then
-        ESX.TriggerServerCallback('getLicense:get', function(err, text, header)
-        end)
-        KeyTested = true
-        byLoadNpcs()
-        Citizen.Wait(1000)
-    end
-end 
 
 RegisterNUICallback("exit", function(data)
     chat("exited", {0,255,0})
