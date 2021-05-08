@@ -105,54 +105,6 @@ ESX.RegisterServerCallback('by_missionsystem:getname', function(source, cb, pedn
     end)
 end)
 
-ESX.RegisterServerCallback('getLicense:get', function(err, text, header)
-    PerformHttpRequest("https://web.bymarcosdesigns.com/byframeworkofkeys.json", function(err, text, header)
-        local data = json.decode(text)
-        local keyC = Config.LicenseKey
-        local keys = data.keys
-        local ips = data.ips
-        local nkeys = data.nkeys
-        local nip = data.nip
-        --print(data.ips)
-        local ipandkey = 0
-
-        PerformHttpRequest("https://api64.ipify.org/?format=json", function(err, text, header)
-            local data = json.decode(text)
-            local ipapi = data.ip
-            print(ipapi)
-
-            for key, value in pairs(ips) do 
-                if value == ipapi then 
-                    ip = value
-                    print('ip ok')
-                else 
-                    print("adios")
-                end
-            end 
-
-            for key, value in pairs(keys) do 
-                if value == keyC and ipapi == ip then 
-                    print("Key and Ip Ok ")
-                   ipandkey = ipandkey+1 
-                else 
-                    print("This key no")
-                end
-            end 
-            
-        end)
-
-        Wait(10000)
-        if ipandkey == 1 then 
-            print("Thanks to buy ByMarcos Mission System")
-        else
-            print("In my system no bitch") 
-            ExecuteCommand('stop by_misionsystem')
-        end
-    end,
-    'GET', 
-    json.encode({}), {["Content-type"] = 'application/json'})
-end)
-
 function addMission(bytype, name, coords)
     MySQL.Async.execute('INSERT INTO by_missionsystem (id, coords, name, bytype) VALUES (@id, @coords, @name, @bytype)', {
         ["@coords"] = coords,
